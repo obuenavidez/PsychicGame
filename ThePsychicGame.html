@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 
+
+  GLOSSARY
+	
+    compInput - computer's selection (r, p, s)
+    compNum - randomly generated decimal number (between 0 and 1)
+	comptext - computer's selection (rock, paper, scissors)
+	lose - number of losses
+	losetext - loss counter
+	tie - number of ties
+    tietext - tie counter
+	userInput - function triggered by user's keystroke (all keys)
+	userKey - user's keystroke (r, p, s, error)
+    usertext - user's selection (rock, paper, scissors, error)
+    win - number of wins
+	wintext - win counter
+
+-->
+
+<body>
+	<h1> The Pyschic Game</h1>
+
+
+	<h3> Guess What Letter Im thinking of ???</h3>
+	  <p>Wins: <span id="usertextW">0</span></p> 
+	  <p>Losses: <span id="usertextL">0</span></p> 
+	  <p>Guess Left so far: <span id="usertextG"> 9</span></p>
+	  
+
+
+
+
+	  <p>You selected: <span id="usertext"></span></p>
+	  <p>Computer selected: <span id="comptext"></span></p>
+
+      
+
+    
+
+
+
+  </div>
+
+	<script type="text/javascript">
+
+	var win = 0;
+  var lose = 0;
+  var guesses = 9;
+
+		document.onkeyup = function(userInput) {
+
+
+
+			var usertext = document.getElementById("usertext");
+			var userKey = userInput.key;
+			var computerChoices = ["r", "p", "s"];
+
+    
+      		// Randomly chooses a choice from the options array. This is the Computer's guess.
+      		var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+            // --------------------- DIsplaying Choice of Computer
+
+          
+            // printing computer selection to screen
+            var comptext = document.getElementById("comptext");
+
+            
+
+           if (computerGuess === userKey) {
+              	win++;
+              	guesses = 10;
+                usertext.textContent = "";
+                
+           
+
+            }
+			
+
+            guesses = guesses - 1 ;
+            usertextG.textContent = guesses;
+            usertextW.textContent = win;
+
+
+            if (guesses=== 0){
+
+            	lose++;
+            	guesses = 10;
+              usertext.textContent = "";
+              //document.write("You guessed it right !!! " );
+                
+
+            }
+
+            usertext.textContent = usertext.textContent + "" + userInput.key;
+            usertextL.textContent = lose;
+            usertextW.textContent = win ;
+            //comptext.textContent = computerGuess;
+
+
+		}
+ 
+           
+
+
+  
+
+
+	</script> <!-- end of javascript -->
+</body>
+</html>
